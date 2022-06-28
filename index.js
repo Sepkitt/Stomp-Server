@@ -1,3 +1,16 @@
 // run `node index.js` in the terminal
 
-console.log(`Hello Node.js v${process.versions.node}!`);
+var Stomp = require('@stomp/stompjs');
+
+
+const express = require('express'); 
+const app = express();             
+const port = 5000;                 
+
+app.get('/', (req, res) => {    
+    res.sendFile('index.html', {root: __dirname});   
+});
+
+app.listen(port, () => {          
+    console.log(`Now listening on port ${port}`); 
+});
